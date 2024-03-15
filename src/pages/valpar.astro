@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro'
+import Hero from '../components/Hero.astro'
+import Contact from '../components/Contact.astro'
+import Section from '../components/Section.astro'
+import Accordion from '../components/Accordion.astro'
+import AccordionItem from '../components/AccordionItem.astro'
+
+import heroImage from '../../public/images/hero-valpar.jpg'
+---
+
+<Base title="home" description="some desc">
+    <Hero
+        title="Valpar"
+        image={{
+            src: heroImage,
+            alt: 'Dog sitting and looking at you playfully',
+        }}
+    >
+        <p class="py-6 text-lg">
+            Våren 2024 planerar vi en ny kull. Det är Antikens Utopia "Paxi" som
+            är en mysig tik med vacker irländsk päls. Paxi har genomfört BPH och
+            är röntgad med B på båda höfterna samt DNA testad föl PLN. Detta
+            blir hennes andra kull.
+        </p>
+    </Hero>
+    <Section class="justify-center" pt={false}>
+        <h2 class="section-title-sm">Allt om valpköp</h2>
+
+        <p class="py-6 text-lg max-w-2xl">
+            När du köper en wheaten valp från mig på Antikens kennel så är den
+            uppfödd i hemmamiljö där valpen har blivit socialiserad och blivit
+            van att hanteras. När de har har blivit äldre och är ett par veckor
+            gamla vistas valparna ute i vår trädgård om vädret tillåter. När
+            valpen flyttar från oss och hem till er är de som tidigast åtta
+            veckor gammal, då ingår:
+        </p>
+
+        <Accordion>
+            <AccordionItem title="Stamtavla-registrering SSK">
+                <p>
+                    Valpen registreras i Svenska Kennelklubben och man får ett
+                    ägarbevis.
+                </p>
+            </AccordionItem>
+            <AccordionItem title="Köpesavtal SKK">
+                <p>
+                    Köpeavtal innebär äganderätt till hunden övergår från
+                    uppfödare till valpköpare
+                </p>
+            </AccordionItem>
+            <AccordionItem
+                title="Veterinärbesiktning, vaccinering och chipmärkning"
+            >
+                <p>
+                    Veterinärbesiktningsprotokoll får inte vara äldre än 7 dagar
+                    och utförs då valpen är ca 7 veckor, samtidigt märker man
+                    valpen med ett microchip i nacken samt vaccinerar mot
+                    valpsjuka och Parvo
+                </p>
+            </AccordionItem>
+            <AccordionItem title="Avmaskning">
+                <p>
+                    Valparna avmaskas mot spolmask och hakmask med Banminth vid
+                    2,4 och 6 veckors ålder
+                </p>
+            </AccordionItem>
+            <AccordionItem title="Försäkring dolda fel, 3 år">
+                <p>
+                    Valparna är försäkrade i Sveland mot dolda fel i 3 år. Ett
+                    dolt fel är en sjukdom eller ett fel som funnits eller
+                    börjat utvecklas före leverans till köparen men som inte
+                    upptäckts vid veterinärbesiktningen. Exempel på ett dolt fel
+                    kan vara medfödd dövhet eller missbildning på ett intre
+                    organ
+                </p>
+            </AccordionItem>
+            <AccordionItem title="Valpkompendie ">
+                <p>
+                    Kompendie med skötselråd såsom pälsvård, kloklippning etc.
+                    När skall jag vaccinera? hur mycket mat ska valpen ha?
+                </p>
+            </AccordionItem>
+            <AccordionItem title="En klippning före ett års ålder">
+                <p>En klippning av pälsen före ett års ålder ingår i priset</p>
+            </AccordionItem>
+            <AccordionItem title="1 års medlemsskap i SWTK">
+                <p>
+                    I vår rasklubb Svenska Wheaten Terrier klubben SWTK ordnas
+                    många trevliga aktiviteter i de olika regionern även
+                    klippkurser, promenader och föreläsningar. Medlemstidning
+                    fyra gånger om året. Det ingår ett års medlemskap i
+                    valpköpet.
+                </p>
+            </AccordionItem>
+        </Accordion>
+    </Section>
+    <Section>
+        <Contact />
+    </Section>
+</Base>

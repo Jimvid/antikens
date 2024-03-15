@@ -1,0 +1,206 @@
+---
+import Base from '../layouts/Base.astro'
+import Hero from '../components/Hero.astro'
+import Contact from '../components/Contact.astro'
+import Section from '../components/Section.astro'
+import Rating from '../components/Rating.astro'
+import Accordion from '../components/Accordion.astro'
+import AccordionItem from '../components/AccordionItem.astro'
+
+import heroImage from '../../public/images/running_dogs.jpg'
+---
+
+<Base title="home" description="some desc">
+    <Hero
+        title="Om rasen"
+        image={{
+            src: heroImage,
+            alt: 'Dog sitting and looking at you playfully',
+        }}
+    >
+        <p class="pb-2 pt-6 text-lg">
+            Här kan vi verkligen tala om allroundhund. En Wheaten älskar att få
+            vara med där det händer saker. De är träningsvilliga och lättlärda
+            även om de kan vara mycket envisa.
+        </p>
+
+        <p class="py-4 text-lg">
+            Den mjukpälsade Wheaten Terrier är en rasterrier från Irland, deras
+            silkeslena och mjuka päls fäller inte som många andra hundar.
+            Wheaten är en medelstor hund och blir ungefär 43 till 51 cm höga och
+            väger ungefär 14-20 kg.
+        </p>
+    </Hero>
+    <Section>
+        <h2 class="section-title-sm mb-12 max-w-lg">
+            Wheatens egenskaper och karaktär
+        </h2>
+        <div class="divider my-8"></div>
+        <Rating
+            title="Självständighet"
+            worst="Självständig"
+            best="Älskar allt och alla"
+            score={5}
+        >
+            <p>
+                Vissa raser kan vara avsides med alla utom deras ägare och
+                väldigt självständiga, medan andra raser behandlar alla de
+                känner som sin bästa vän.
+            </p>
+        </Rating>
+        <div class="divider my-8"></div>
+        <Rating
+            title="Hand med småbarn"
+            worst="Inte rekommenderat"
+            best="Bra med småbarn"
+            score={5}
+        >
+            <p>
+                Wheatens har en hög nivå av tolerans och tålamod med barns
+                beteende och har en övergripande familjevänlig natur. Hundar bör
+                alltid övervakas runt små barn, eller barn i alla åldrar som har
+                liten exponering för hundar.
+            </p>
+        </Rating>
+        <div class="divider my-8"></div>
+        <Rating
+            title="Relation till andra hundar"
+            worst="Inte rekommenderat"
+            best="Bra med andra hundar"
+            score={3}
+        >
+            <p>
+                Wheatens är allmänt en hund som är vänlig mot andra hundar.
+                Hundar bör alltid övervakas för interaktioner och introduktioner
+                med andra hundar, men vissa raser är mer benägna att komma
+                överens med andra hundar, både hemma och offentligt.
+            </p>
+        </Rating>
+        <div class="divider my-8"></div>
+        <Rating
+            title="Pälsavfall"
+            worst="Hår överallt"
+            best="Lite eller inget pälsavfall"
+            score={4}
+        >
+            <p>
+                Hur mycket päls och hår du kan förvänta dig att rasen lämnar
+                kvar. Raser med hög utsöndring måste borstas oftare, är mer
+                benägna att utlösa vissa typer av allergier och är mer benägna
+                att kräva mer konsekvent dammsugning och luddrullning.
+            </p>
+        </Rating>
+        <div class="divider my-8"></div>
+        <Rating
+            title="Energinivå"
+            worst="Soffpoatis"
+            best="Högt energinivå"
+            score={4}
+        >
+            <p>
+                Mängden motion och mental stimulering en ras behöver.
+                Högenergiraser är redo att gå och ivriga för sitt nästa äventyr.
+                De kommer att spendera sin tid med att springa, hoppa och leka
+                helda dagen. Lågenergiraser är som soffpotatisar - de ligger
+                mest och sover.
+            </p>
+        </Rating>
+        <div class="divider my-8"></div>
+    </Section>
+    <Section id="forvantningar" class="justify-center">
+        <h2 class="section-title-sm max-w-xl">
+            Förväntningar när man tar hand om en wheaten
+        </h2>
+
+        <p class="py-6 text-lg max-w-2xl">
+            Att äga en hund är inte bara ett privilegium, det är ett ansvar.
+            Hunden är beroende av oss för åtminstone mat och husrum, och de
+            förtjänar mycket mer än så. När du tar en hund in i ditt liv måste
+            du förstå det engagemang som hundägande innebär.
+        </p>
+
+        <Accordion>
+            <AccordionItem title="Hälsa">
+                <p>
+                    Wheatens är en relativt sund och frisk ras som ofta blir
+                    uppåt 12-13 år om de får vara friska. Det finns även de
+                    hundar som blivit över 15 år. Dock förekommer det problem
+                    med njurar, mage och vissa hudåkommor. Som med alla raser
+                    bör en Wheatens öron kontrolleras regelbundet för tecken på
+                    infektion.
+                </p>
+            </AccordionItem>
+            <AccordionItem title="Pälsvård">
+                <p>
+                    En Softcoated Wheaten terrier har en underbar mjuk vågig
+                    päls som inte fäller men det krävs en hel del pälsvård. Man
+                    bör kamma den vuxna hunden minst 1 gång i veckan , valp och
+                    unghund 3-4 ggr i veckan samt badas 1 gång i månaden med
+                    riklig schamponering och balsam för att hålla pälsen i bra
+                    skick. Det är viktigt att kamma genom hela pälsen för att
+                    reda ut eventuella tovor och att förhindra att det bildas
+                    tovor. Klippning bör ske med 3-4 månaders mellanrum. Klippa
+                    klor och dra ut öronhår hör också till den allmäna skötslen.
+                </p>
+            </AccordionItem>
+            <AccordionItem title="Motion">
+                <p>
+                    Soft Coated Wheaten Terrier har en medelhög till hög
+                    energinivå som inte minskar, även på äldre dar. De behöver
+                    mycket motion varje dag. Med en stark bytesdrift kommer
+                    Wheatens att ha en lust att jaga efter nästan allt som rör
+                    sig som ekorrar, harar och liknande. Trädgården måste vara
+                    säkert inhägnad, och promenader måste alltid vara i koppel.
+                    Wheatens binder sig till sina ägare, som bör förvänta sig
+                    att delta i de dagliga träningspassen.
+                </p>
+            </AccordionItem>
+            <AccordionItem title="Träning">
+                <p>
+                    Tidiga socialiserings- och valpträningsklasser rekommenderas
+                    för alla hundar för att säkerställa att de växer till
+                    välanpassade, väluppfostrade följeslagare. Wheatens är en
+                    mycket smart och egensinnig hund och har ofta en egen
+                    agenda. Detta gör dem utmanande att träna. Det ger också en
+                    annan anledning till att lydnadsträning bör börja tidigt,
+                    innan dåliga vanor blir inrotade. En Wheaten behöver
+                    konsekvent, fast disciplin men är känslig för hård
+                    behandling.
+                </p>
+            </AccordionItem>
+            <AccordionItem title="Försäkring dolda fel, 3 år">
+                <p>
+                    Valparna är försäkrade i Sveland mot dolda fel i 3 år. Ett
+                    dolt fel är en sjukdom eller ett fel som funnits eller
+                    börjat utvecklas före leverans till köparen men som inte
+                    upptäckts vid veterinärbesiktningen. Exempel på ett dolt fel
+                    kan vara medfödd dövhet eller missbildning på ett intre
+                    organ
+                </p>
+            </AccordionItem>
+            <AccordionItem title="Valpkompendie ">
+                <p>
+                    Kompendie med skötselråd såsom pälsvård, kloklippning etc.
+                    När skall jag vaccinera? hur mycket mat ska valpen ha?
+                </p>
+            </AccordionItem>
+            <AccordionItem title="Kost">
+                <p>
+                    Wheatens bör klara sig bra på en högkvalitativ hundmat. Alla
+                    dieter bör vara lämpliga för hundens ålder (valp, vuxen
+                    eller senior). Vissa hundar är benägna att bli överviktiga,
+                    så titta på din hunds kaloriförbrukning och viktnivå. Godis
+                    kan vara ett viktigt hjälpmedel i träning, men att ge för
+                    många kan orsaka fetma. Lär dig om vilka mänskliga livsmedel
+                    som är säkra för hundar, och vilka som inte är det.
+                    Kontrollera med din veterinär om du har några problem med
+                    din hunds vikt eller kost. Rent, färskt vatten bör alltid
+                    finnas tillgängligt.
+                </p>
+            </AccordionItem>
+        </Accordion>
+    </Section>
+    <Section>
+        <Contact />
+    </Section>
+</Base>

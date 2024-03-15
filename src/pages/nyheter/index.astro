@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content'
+import FormattedDate from '../../components/FormattedDate.astro'
+import Section from '../../components/Section.astro'
+import Base from '../../layouts/Base.astro'
+
+const posts = (await getCollection('blog')).sort(
+    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+)
+---
+
+<Base title="Nyheter">
+    <Section>
+        <h1 class="section-title mb-8 md:mb-24">Senaste från Antikens</h1>
+        <ul>
+            {
+                posts.map((post, index) => (
+                    <>
+                        <li>
+                            {index === 0 && <div class="divider" />}
+                            <p class="date text-xs text-gray-500">
+                                <FormattedDate date={post.data.pubDate} />
+                            </p>
+                            <h4 class="text-3xl mb-2 font-semibold">
+                                {post.data.title}
+                            </h4>
+                            <p class="text-lg max-w-xl">
+                                {post.data.description}
+                            </p>
+
+                            <a
+                                href={`/nyheter/${post.slug}/`}
+                                class="text-primary border-0 shadow-0 inline-flex items-center gap-2 font-semibold py-2 hover:gap-4"
+                            >
+                                Läs mer
+                                <i class="ph text-xl ph-arrow-right" />
+                            </a>
+                            <div class="divider" />
+                        </li>
+                    </>
+                ))
+            }
+        </ul>
+    </Section>
+</Base>

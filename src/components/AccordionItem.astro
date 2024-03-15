@@ -1,0 +1,18 @@
+---
+interface Props {
+    title: string
+}
+const { title } = Astro.props
+---
+
+<div class="collapse collapse-arrow join-item border border-base-300">
+    <input type="radio" name="my-accordion-4" />
+    <div class="collapse-title text-xl font-medium">
+        {title}
+    </div>
+    <div class="collapse-content">
+        <div class="max-w-2xl">
+            <slot />
+        </div>
+    </div>
+</div>

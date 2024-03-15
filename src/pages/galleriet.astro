@@ -1,0 +1,61 @@
+---
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+import Section from '../components/Section.astro'
+import Contact from '../components/Contact.astro'
+import Base from '../layouts/Base.astro'
+
+const images: ImageMetadata[] = await Astro.glob(
+    '../../public/images/gallery/*',
+).then((files) => {
+    return files.map((file) => file.default)
+})
+---
+
+<Base title="home" description="some desc">
+    <Section>
+        <h1 class="section-title mb-4">Galleriet</h1>
+        <p class="mb-8 md:mb-24 max-w-lg">
+            I galleriet finns det en samling bilder, allt från kullar,
+            valpträffar och andra hundrelaterade aktiviteter.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {
+                images.map((image) => (
+                    <div>
+                        <button
+                            class="pointer-events-none md:pointer-events-auto"
+                            onclick="my_modal_1.showModal()"
+                        >
+                            <Image
+                                class=" cursor-pointer rounded-md shadow-lg aspect-[16/12] object-cover transition-all hover:shadow-2xl hover:translate-y-[-6px]"
+                                src={image}
+                                alt=""
+                            />
+                        </button>
+                        <dialog id="my_modal_1" class="modal">
+                            <div class="modal-box overflow-hidden rounded-md border-2 border-black p-0 relative">
+                                <form
+                                    method="dialog"
+                                    class="absolute top-3 right-3"
+                                >
+                                    <button class="text-xl bg-black text-white shadow-2xl rounded-full w-8 h-8 flex justify-center items-center transition-all hover:scale-105">
+                                        <i class="ph ph-x" />
+                                    </button>
+                                </form>
+                                <Image
+                                    class="cursor-pointer shadow-lg aspect-[16/12] object-cover"
+                                    src={image}
+                                    alt=""
+                                />
+                            </div>
+                        </dialog>
+                    </div>
+                ))
+            }
+        </div>
+    </Section>
+    <Section>
+        <Contact />
+    </Section>
+</Base>

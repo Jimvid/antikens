@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets'
+
+interface Props {
+    image: {
+        src: ImageMetadata
+        alt: string
+    }
+}
+
+const { image } = Astro.props
+---
+
+<div class="card md:card-side bg-base-100 shadow-xl relative">
+    <figure
+        class="hidden rounded-0 max-w-96 border border-primary border-r-0 md:max-h-60"
+    >
+        <Image src={image.src} alt={image.alt} />
+    </figure>
+    <div class="card-body bg-[#f6f9fc] border border-primary rounded-r-lg">
+        <slot />
+    </div>
+
+    <span
+        class="w-8 h-8 border border-b-0 border-l-0 border-t-4 border-r-4 rounded-tr-lg border-primary z-50 absolute top-[-2px] right-[-2px]"
+    ></span>
+    <span
+        class="w-8 h-8 border border-b-0 border-r-0 border-t-4 border-l-4 rounded-tl-lg border-primary z-50 absolute top-[-2px] left-[-2px]"
+    ></span>
+    <span
+        class="w-8 h-8 border border-t-0 border-l-0 border-b-4 border-r-4 rounded-br-lg border-primary z-50 absolute bottom-[-2px] right-[-2px]"
+    ></span>
+    <span
+        class="w-8 h-8 border border-t-0 border-r-0 border-b-4 border-l-4 rounded-bl-lg border-primary z-50 absolute bottom-0 left-[]"
+    ></span>
+</div>
+
+<style>
+    .card {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+
+        figure {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            figure {
+                display: initial;
+            }
+        }
+    }
+</style>

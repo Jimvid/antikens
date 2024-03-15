@@ -1,0 +1,114 @@
+---
+import Base from '../layouts/Base.astro'
+import Hero from '../components/Hero.astro'
+import Contact from '../components/Contact.astro'
+import Card from '../components/Card.astro'
+import ImageSeparator from '../components/ImageSeparator.astro'
+import Section from '../components/Section.astro'
+import Button from '../components/Button.astro'
+import FeaturedCard from '../components/FeaturedCard.astro'
+
+import heroImage from '../../public/images/sitting_dog_hero.jpg'
+import featuredCardImage from '../../public/images/tree-sitting-puppies.jpg'
+---
+
+<Base title="home" description="some desc">
+    <Hero
+        title="Hej och välkommen till Antikens Kennel"
+        image={{
+            src: heroImage,
+            alt: 'Dog sitting and looking at you playfully',
+        }}
+    >
+        <p class="pt-6 text-lg">
+            Mitt namn är Kristina Jimvid och har hand om Antikens kennel. Min
+            första kontakt med Wheaten terrier var 1992 och jag blev helt
+            förälskad i rasen. År 2000 ansökte jag och fick mitt kennel prefix
+            Antikens och redan samma år föddes min första kull.
+        </p>
+    </Hero>
+    <Section>
+        <FeaturedCard
+            image={{
+                src: featuredCardImage,
+                alt: 'lot of puppies running around',
+            }}
+        >
+            <h2 class="card-title text-4xl">Valparna är planerade!</h2>
+            <p>Till våren är det dags för en ny kull valpar.</p>
+
+            <div class="card-actions justify-start">
+                <Button href="/valpar" variant="primary"> Läs mer </Button>
+            </div>
+        </FeaturedCard>
+    </Section>
+    <!-- About -->
+    <Section>
+        <h2 class="section-title my-7">
+            Om Wheatens<span class="text-primary">.</span>
+        </h2>
+        <ul class="flex flex-col md:flex-row gap-4 mb-24">
+            <li class="flex-1">
+                <Card
+                    title="Om rasen"
+                    link={{ label: 'Läs mer om rasen', href: '/om-rasen' }}
+                >
+                    <p>
+                        Irish Softcoated Wheaten terrier kommer ursprungligen
+                        från Irland där de lär ha funnits ett par hundra år
+                        tillbaka i tiden. De användes främst som gårdshundar för
+                        att hålla skadedjur och andra ovälkomna individer borta
+                        från ägorna...
+                    </p>
+                </Card>
+            </li>
+            <li class="flex-1">
+                <Card
+                    title="Allt om valpköp"
+                    link={{ label: 'Läs mer om valpköp', href: '/valpar' }}
+                >
+                    <p>
+                        När du köper en wheaten valp från mig på Antikens kennel
+                        så är den uppfödd i hemmamiljö där valpen har blivit
+                        socialiserad och blivit van att hanteras.
+                    </p>
+                </Card>
+            </li>
+            <li class="flex-1">
+                <Card
+                    title="Leva med en Wheaten"
+                    link={{
+                        label: 'Läs mer om skötsel',
+                        href: '/om-rasen/#forvantningar',
+                    }}
+                >
+                    <p>
+                        Att äga en Wheaten krävs lite envishet och en stor
+                        portion humor. De är aldrig sena för bus och upptåg som
+                        man kanske inte alltid uppskattar. De har behov av
+                        stimulans och motion.
+                    </p>
+                </Card>
+            </li>
+        </ul>
+    </Section>
+    <!-- Gallery -->
+    <Section class="justify-center" fullwidth pt={false}>
+        <div class="flex flex-col gap-4 items-center">
+            <h2 class="section-title text-center">
+                Galleriet<span class="text-primary">.</span>
+            </h2>
+            <p class="text-center max-w-[520px]">
+                I galleriet finns det en samling bilder, allt från tidigare
+                valpkullar, valpträffar och andra hundrelaterade aktiviteter.
+            </p>
+            <a href="/galleriet" class="btn btn-primary text-white m-auto"
+                >Gå till galleriet</a
+            >
+        </div>
+        <ImageSeparator />
+    </Section>
+    <Section>
+        <Contact />
+    </Section>
+</Base>

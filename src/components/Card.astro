@@ -1,0 +1,32 @@
+---
+interface Props {
+    title: string
+    image?: string
+    link?: {
+        href: string
+        label: string
+    }
+}
+
+const { title, link } = Astro.props
+---
+
+<div class="card h-full bg-base-100 shadow-xl">
+    <div class="card-body">
+        <h2 class="card-title text-2xl">{title}</h2>
+        <slot />
+        {
+            link && (
+                <div class="card-actions justify-start mt-4">
+                    <a
+                        href={link.href}
+                        class="border-0 shadow-0 flex items-center gap-2 font-semibold py-2 hover:gap-4"
+                    >
+                        {link.label}
+                        <i class="ph text-xl ph-arrow-right" />
+                    </a>
+                </div>
+            )
+        }
+    </div>
+</div>
