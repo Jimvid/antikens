@@ -9,9 +9,9 @@ const posts = (await getCollection('blog')).sort(
 )
 ---
 
-<Base title="Nyheter">
+<Base title="Nyheter" description="Det senaste från Antikens kennel">
     <Section>
-        <h1 class="section-title mb-8 md:mb-24">Senaste från Antikens</h1>
+        <h1 class="section-title mb-8 md:mb-24">Det senaste från Antikens</h1>
         <ul>
             {
                 posts.map((post, index) => (
