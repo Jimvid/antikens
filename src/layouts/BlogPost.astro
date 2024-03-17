@@ -1,56 +1,26 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import BaseHead from '../components/BaseHead.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
 import FormattedDate from '../components/FormattedDate.astro'
+import Base from '../layouts/Base.astro'
+import Section from '../components/Section.astro'
 
 type Props = CollectionEntry<'blog'>['data']
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props
+const { title, description, pubDate } = Astro.props
 ---
 
-<html lang="en" data-theme="corporate">
-    <head>
-        <BaseHead title={title} description={description} />
-    </head>
-
-    <body>
-        <Header />
-        <main class="max-w-[980px] m-auto">
-            <article>
-                <div class="hero-image">
-                    {
-                        heroImage && (
-                            <img
-                                width={1020}
-                                height={510}
-                                src={heroImage}
-                                alt=""
-                            />
-                        )
-                    }
+<Base title={title} description={description}>
+    <Section>
+        <article class="min-h-[calc(100vh-268px-92px-10rem)]">
+            <div>
+                <div class="text-sm opacity-60 font-semibold">
+                    <FormattedDate date={pubDate} />
                 </div>
-                <div class="prose">
-                    <div class="title">
-                        <div class="date">
-                            <FormattedDate date={pubDate} />
-                            {
-                                updatedDate && (
-                                    <div class="last-updated-on">
-                                        Last updated on{' '}
-                                        <FormattedDate date={updatedDate} />
-                                    </div>
-                                )
-                            }
-                        </div>
-                        <h1>{title}</h1>
-                        <hr />
-                    </div>
+                <h1 class="section-title mb-4">{title}</h1>
+                <div class="max-w-2xl">
                     <slot />
                 </div>
-            </article>
-        </main>
-        <Footer />
-    </body>
-</html>
+            </div>
+        </article>
+    </Section>
+</Base>
