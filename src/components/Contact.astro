@@ -1,3 +1,8 @@
+---
+import { Image } from 'astro:assets'
+import contact from '../assets/images/contact_profile_picture.png'
+---
+
 <div>
     <h4 class="font-semibold text-3xl md:text-4xl mb-6">
         Har du några frågor? Kontakta mig
@@ -7,8 +12,9 @@
             <div>
                 <div class="avatar mr-4">
                     <div class="w-24 rounded-full">
-                        <img
-                            src="https://res.cloudinary.com/motherload/image/upload/v1638384382/ak/prod/medium_kristina_jimvid_c5d9c0c9f8.png"
+                        <Image
+                            src={contact}
+                            alt="Kristina Jimvid, contact person"
                         />
                     </div>
                 </div>
