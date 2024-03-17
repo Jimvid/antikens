@@ -7,8 +7,6 @@ export default {
     plugins: [require('daisyui')],
     daisyui: {
         themes: [
-            'corporate',
-            'winter',
             'pastel',
             {
                 antic: {
