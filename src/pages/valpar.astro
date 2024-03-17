@@ -5,8 +5,10 @@ import Contact from '../components/Contact.astro'
 import Section from '../components/Section.astro'
 import Accordion from '../components/Accordion.astro'
 import AccordionItem from '../components/AccordionItem.astro'
-
+import { Image } from 'astro:assets'
 import heroImage from '../assets/images/hero-valpar.jpg'
+import dogOscar from '../assets/images/oscar.jpg'
+import dogPaxi from '../assets/images/paxi.jpg'
 ---
 
 <Base
@@ -19,13 +21,39 @@ import heroImage from '../assets/images/hero-valpar.jpg'
         alt="Dog sitting and looking at you playfully"
     >
         <p class="py-6 text-lg">
-            Våren 2024 planerar vi en ny kull. Det är Antikens Utopia "Paxi" som
-            är en mysig tik med vacker irländsk päls. Paxi har genomfört BPH och
-            är röntgad med B på båda höfterna samt DNA testad föl PLN. Detta
-            blir hennes andra kull.
+            Ny spännande kull väntas vecka 16 . De redo att flytta till sina nya
+            hem veckan före midsommar. Vid intresse för valp från denna kull är
+            ni välkomna att kontakta mig via mail eller telefon.
         </p>
     </Hero>
-    <Section class="justify-center" pt={false}>
+    <Section>
+        <h2 class="section-title-sm mb-4">Paxi & Oscar</h2>
+        <p class="text-lg max-w-2xl mb-4">
+            Mamman Antikens Utopia "Paxi" är en mysig tik med vacker irländsk
+            päls, tränar och tävlat i nosework. Genomfört BPH. Höftledsröntgad
+            med B på båda höfterna. Detta blir hennes andra kull.
+        </p>
+        <p class="text-lg max-w-2xl mb-4">
+            Pappan Lakkas Sävstaholm "Oscar" är en maskulin och stilig hane.
+            Pälsen är amerikansk av mycket god kvalitet med fin färg, struktur
+            och lyster. Han är väldigt lekfull och social. Älskar alla människor
+            och har lätt för att umgås med andra hundar. Oscar bor i Helsingborg
+            och valpköpare som vill träffa honom får gärna göra det.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            <Image
+                class="rounded-md shadow-lg aspect-[16/12] object-cover"
+                src={dogPaxi}
+                alt="Female dog called Paxi standing at a dog contest"
+            />
+            <Image
+                class="rounded-md shadow-lg aspect-[16/12] object-cover"
+                src={dogOscar}
+                alt="Female dog called Paxi standing at a dog contest"
+            />
+        </div>
+    </Section>
+    <Section pt={false}>
         <h2 class="section-title-sm">Allt om valpköp</h2>
 
         <p class="py-6 text-lg max-w-2xl">
