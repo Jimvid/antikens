@@ -21,11 +21,11 @@ const images: ImageMetadata[] = await Astro.glob(
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {
-                images.map((image) => (
+                images.map((image, index) => (
                     <div>
                         <button
                             class="pointer-events-none md:pointer-events-auto"
-                            onclick="my_modal_1.showModal()"
+                            onclick={`modal_${index}.showModal()`}
                         >
                             <Image
                                 class=" cursor-pointer rounded-md shadow-lg aspect-[16/12] object-cover transition-all hover:shadow-2xl hover:translate-y-[-6px]"
@@ -33,8 +33,8 @@ const images: ImageMetadata[] = await Astro.glob(
                                 alt=""
                             />
                         </button>
-                        <dialog id="my_modal_1" class="modal">
-                            <div class="modal-box overflow-hidden rounded-md border-2 border-black p-0 relative">
+                        <dialog id={`modal_${index}`} class="modal">
+                            <div class="modal-box min-w-[45vw] overflow-hidden rounded-md border-2 border-black p-0 relative">
                                 <form
                                     method="dialog"
                                     class="absolute top-3 right-3"
@@ -44,7 +44,7 @@ const images: ImageMetadata[] = await Astro.glob(
                                     </button>
                                 </form>
                                 <Image
-                                    class="cursor-pointer shadow-lg aspect-[16/12] object-cover"
+                                    class="cursor-pointer shadow-lg min-w-full aspect-[16/12] object-cover"
                                     src={image}
                                     alt=""
                                 />
