@@ -8,8 +8,8 @@ import Section from '../components/Section.astro'
 import Button from '../components/Button.astro'
 import FeaturedCard from '../components/FeaturedCard.astro'
 
-import heroImage from '../../public/images/sitting_dog_hero.jpg'
-import featuredCardImage from '../../public/images/tree-sitting-puppies.jpg'
+import heroImage from '../assets/images/sitting_dog_hero.jpg'
+import featuredCardImage from '../assets/images/tree-sitting-puppies.jpg'
 ---
 
 <Base
@@ -18,10 +18,8 @@ import featuredCardImage from '../../public/images/tree-sitting-puppies.jpg'
 >
     <Hero
         title="Hej och välkommen till Antikens Kennel"
-        image={{
-            src: heroImage,
-            alt: 'Dog sitting and looking at you playfully',
-        }}
+        image={heroImage}
+        alt="Dog sitting and looking at you playfully"
     >
         <p class="pt-6 text-lg">
             Mitt namn är Kristina Jimvid och har hand om Antikens kennel. Min
@@ -32,10 +30,8 @@ import featuredCardImage from '../../public/images/tree-sitting-puppies.jpg'
     </Hero>
     <Section>
         <FeaturedCard
-            image={{
-                src: featuredCardImage,
-                alt: 'lot of puppies running around',
-            }}
+            image={featuredCardImage}
+            alt="lot of puppies running around"
         >
             <h2 class="card-title text-4xl">Valparna är planerade!</h2>
             <p>Till våren är det dags för en ny kull valpar.</p>

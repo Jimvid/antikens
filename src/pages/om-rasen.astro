@@ -7,7 +7,7 @@ import Rating from '../components/Rating.astro'
 import Accordion from '../components/Accordion.astro'
 import AccordionItem from '../components/AccordionItem.astro'
 
-import heroImage from '../../public/images/running_dogs.jpg'
+import heroImage from '../assets/images/running_dogs.jpg'
 ---
 
 <Base
@@ -16,10 +16,8 @@ import heroImage from '../../public/images/running_dogs.jpg'
 >
     <Hero
         title="Om rasen"
-        image={{
-            src: heroImage,
-            alt: 'Dog sitting and looking at you playfully',
-        }}
+        image={heroImage}
+        alt="Dog sitting and looking at you playfully"
     >
         <p class="pb-2 pt-6 text-lg">
             Här kan vi verkligen tala om allroundhund. En Wheaten älskar att få

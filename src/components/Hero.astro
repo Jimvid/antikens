@@ -1,15 +1,14 @@
 ---
 import { Image } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
+
 interface Props {
-    image: {
-        src: ImageMetadata
-        alt: string
-    }
+    image: ImageMetadata
+    alt: string
     title: string
 }
 
-const { image, title } = Astro.props
+const { image, alt, title } = Astro.props
 ---
 
 <div class="hero py-8 md:my-24">
@@ -18,8 +17,8 @@ const { image, title } = Astro.props
     >
         <div class="blue-backdrop shadow-2xl col-start-2 col-end-2">
             <Image
-                src={image.src}
-                alt={image.alt}
+                src={image}
+                alt={alt}
                 loading="eager"
                 class="border-primary blue-backdrop rounded-lg md:max-w-[580px] lg:max-w-lg shadow-2xl"
             />

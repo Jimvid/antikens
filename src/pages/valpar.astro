@@ -6,7 +6,7 @@ import Section from '../components/Section.astro'
 import Accordion from '../components/Accordion.astro'
 import AccordionItem from '../components/AccordionItem.astro'
 
-import heroImage from '../../public/images/hero-valpar.jpg'
+import heroImage from '../assets/images/hero-valpar.jpg'
 ---
 
 <Base
@@ -15,10 +15,8 @@ import heroImage from '../../public/images/hero-valpar.jpg'
 >
     <Hero
         title="Valpar"
-        image={{
-            src: heroImage,
-            alt: 'Dog sitting and looking at you playfully',
-        }}
+        image={heroImage}
+        alt="Dog sitting and looking at you playfully"
     >
         <p class="py-6 text-lg">
             Våren 2024 planerar vi en ny kull. Det är Antikens Utopia "Paxi" som
