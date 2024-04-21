@@ -9,6 +9,12 @@ import { Image } from 'astro:assets'
 import heroImage from '../assets/images/hero-valpar.jpg'
 import dogOscar from '../assets/images/oscar.jpg'
 import dogPaxi from '../assets/images/paxi.jpg'
+
+const images_week_1: ImageMetadata[] = await Astro.glob(
+    '../assets/images/valpar/vecka_1/*',
+).then((files) => {
+    return files.map((file) => file.default)
+})
 ---
 
 <Base
@@ -20,12 +26,60 @@ import dogPaxi from '../assets/images/paxi.jpg'
         image={heroImage}
         alt="Dog sitting and looking at you playfully"
     >
-        <p class="py-6 text-lg">
-            Ny spännande kull väntas vecka 16. De redo att flytta till sina nya
-            hem veckan före midsommar. Vid intresse för valp från denna kull är
-            ni välkomna att kontakta mig via mail eller telefon.
+        <p class="pt-6 text-lg">
+            Nu är de här! Oscars och Paxis valpar, fyra hanar och två tikar
+            föddes 19/4. Mamma Paxi är fantastiskt duktig och sköter om de små
+            på bästa sätt.
+        </p>
+        <p class="py-4 text-lg">
+            Jämn och fin kull, det finns en tik och två hanar att reservera. Vi
+            söker även fodervärd till tik. Du kan följa kullen här varje vecka,
+            med nya bilder.
+        </p>
+        <p class="pb-6 text-lg">
+            Ni är välkomna att kontakta mig för intresse av valp från denna
+            kull. Det finns även möjlighet att träffa pappa Oscar som bor i
+            Helsingborg.
         </p>
     </Hero>
+    <Section>
+        <h2 class="section-title-sm mb-4">Valpar vecka 1</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {
+                images_week_1.map((image, index) => (
+                    <div>
+                        <button
+                            class="pointer-events-none md:pointer-events-auto"
+                            onclick={`modal_${index}.showModal()`}
+                        >
+                            <Image
+                                class=" cursor-pointer rounded-md shadow-lg aspect-[16/12] object-cover transition-all hover:shadow-2xl hover:translate-y-[-6px]"
+                                src={image}
+                                alt=""
+                            />
+                        </button>
+                        <dialog id={`modal_${index}`} class="modal">
+                            <div class="modal-box min-w-[45vw] overflow-hidden rounded-md border-2 border-black p-0 relative">
+                                <form
+                                    method="dialog"
+                                    class="absolute top-3 right-3"
+                                >
+                                    <button class="text-xl bg-black text-white shadow-2xl rounded-full w-8 h-8 flex justify-center items-center transition-all hover:scale-105">
+                                        <i class="ph ph-x" />
+                                    </button>
+                                </form>
+                                <Image
+                                    class="cursor-pointer shadow-lg min-w-full object-cover"
+                                    src={image}
+                                    alt=""
+                                />
+                            </div>
+                        </dialog>
+                    </div>
+                ))
+            }
+        </div>
+    </Section>
     <Section>
         <h2 class="section-title-sm mb-4">Paxi & Oscar</h2>
         <p class="text-lg max-w-2xl mb-4">
