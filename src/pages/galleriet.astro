@@ -22,16 +22,16 @@ const images: ImageMetadata[] = await Astro.glob(
             I galleriet finns det en samling bilder, allt från kullar,
             valpträffar och andra hundrelaterade aktiviteter.
         </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {
                 images.map((image, index) => (
                     <div>
                         <button
-                            class="pointer-events-none md:pointer-events-auto"
+                            class="pointer-events-none w-full md:pointer-events-auto"
                             onclick={`modal_${index}.showModal()`}
                         >
                             <Image
-                                class=" cursor-pointer rounded-md shadow-lg aspect-[16/12] object-cover transition-all hover:shadow-2xl hover:translate-y-[-6px]"
+                                class=" cursor-pointer rounded-md w-full shadow-lg md:aspect-[16/12] object-cover transition-all hover:shadow-2xl hover:translate-y-[-6px]"
                                 src={image}
                                 alt=""
                             />
