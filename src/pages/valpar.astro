@@ -9,12 +9,20 @@ import { Image } from 'astro:assets'
 import heroImage from '../assets/images/hero-valpar.jpg'
 import dogOscar from '../assets/images/oscar.jpg'
 import dogPaxi from '../assets/images/paxi.jpg'
+import { Gallery } from '../components/Gallery'
 
-const images_week_1: ImageMetadata[] = await Astro.glob(
+const week1: ImageMetadata[] = await Astro.glob(
     '../assets/images/valpar/vecka_1/*',
 ).then((files) => {
     return files.map((file) => file.default)
 })
+const week2: ImageMetadata[] = await Astro.glob(
+    '../assets/images/valpar/vecka_2/*',
+).then((files) => {
+    return files.map((file) => file.default)
+})
+
+let weeks = [week1, week2]
 ---
 
 <Base
@@ -43,42 +51,8 @@ const images_week_1: ImageMetadata[] = await Astro.glob(
         </p>
     </Hero>
     <Section>
-        <h2 class="section-title-sm mb-4">Valpar vecka 1</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {
-                images_week_1.map((image, index) => (
-                    <div>
-                        <button
-                            class="pointer-events-none w-full md:pointer-events-auto"
-                            onclick={`modal_${index}.showModal()`}
-                        >
-                            <Image
-                                class="w-full cursor-pointer rounded-md shadow-lg md:aspect-[16/12] object-cover transition-all hover:shadow-2xl hover:translate-y-[-6px]"
-                                src={image}
-                                alt=""
-                            />
-                        </button>
-                        <dialog id={`modal_${index}`} class="modal">
-                            <div class="modal-box min-w-[45vw] overflow-hidden rounded-md border-2 border-black p-0 relative">
-                                <form
-                                    method="dialog"
-                                    class="absolute top-3 right-3"
-                                >
-                                    <button class="text-xl bg-black text-white shadow-2xl rounded-full w-8 h-8 flex justify-center items-center transition-all hover:scale-105">
-                                        <i class="ph ph-x" />
-                                    </button>
-                                </form>
-                                <Image
-                                    class="cursor-pointer shadow-lg min-w-full object-cover"
-                                    src={image}
-                                    alt=""
-                                />
-                            </div>
-                        </dialog>
-                    </div>
-                ))
-            }
-        </div>
+        <h2 class="section-title-sm mb-4">Valparbilder</h2>
+        <Gallery client:load weeks={weeks} />
     </Section>
     <Section>
         <h2 class="section-title-sm mb-4">Paxi & Oscar</h2>
