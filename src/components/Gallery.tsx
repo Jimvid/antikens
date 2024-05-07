@@ -1,14 +1,19 @@
 import { useState } from 'react'
 
-export const Gallery = (props: { weeks: ImageMetadata[][] }) => {
-    const [currentWeek, setcurrentWeek] = useState(0)
+export type GalleryProps = {
+    weeks: ImageMetadata[][]
+    current: number
+}
+
+export const Gallery = ({ weeks, current = 0 }: GalleryProps) => {
+    const [currentWeek, setcurrentWeek] = useState(current)
 
     return (
         <div className="flex flex-col gap-4">
             <div className="flex gap-4 items-center">
                 <div className="text-xl font-semibold">Vecka:</div>
                 <div className="join">
-                    {props?.weeks?.map((_: unknown, index: number) => (
+                    {weeks?.map((_: unknown, index: number) => (
                         <button
                             className={`join-item btn border-2 ${index === currentWeek ? 'btn-primary text-white' : ''}`}
                             onClick={() => setcurrentWeek(index)}
@@ -19,7 +24,7 @@ export const Gallery = (props: { weeks: ImageMetadata[][] }) => {
                 </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                {props.weeks[currentWeek].map((image: any, index: number) => (
+                {weeks[currentWeek].map((image: any, index: number) => (
                     <div>
                         <button
                             className="pointer-events-none w-full md:pointer-events-auto"
