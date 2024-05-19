@@ -16,23 +16,32 @@ const week1: ImageMetadata[] = await Astro.glob(
 ).then((files) => {
     return files.map((file) => file.default)
 })
+
 const week2: ImageMetadata[] = await Astro.glob(
     '../assets/images/valpar/vecka_2/*',
 ).then((files) => {
     return files.map((file) => file.default)
 })
+
 const week3: ImageMetadata[] = await Astro.glob(
     '../assets/images/valpar/vecka_3/*',
 ).then((files) => {
     return files.map((file) => file.default)
 })
+
 const week4: ImageMetadata[] = await Astro.glob(
     '../assets/images/valpar/vecka_4/*',
 ).then((files) => {
     return files.map((file) => file.default)
 })
 
-const weeks = [week1, week2, week3, week4]
+const week5: ImageMetadata[] = await Astro.glob(
+    '../assets/images/valpar/vecka_5/*',
+).then((files) => {
+    return files.map((file) => file.default)
+})
+
+const weeks = [week1, week2, week3, week4, week5]
 ---
 
 <Base
@@ -62,7 +71,7 @@ const weeks = [week1, week2, week3, week4]
     </Hero>
     <Section>
         <h2 class="section-title-sm mb-4">Valpbilder</h2>
-        <Gallery client:load weeks={weeks} current={3} />
+        <Gallery client:load weeks={weeks} current={4} />
     </Section>
     <Section>
         <h2 class="section-title-sm mb-4">Paxi & Oscar</h2>
