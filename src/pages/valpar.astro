@@ -41,7 +41,13 @@ const week5: ImageMetadata[] = await Astro.glob(
     return files.map((file) => file.default)
 })
 
-const weeks = [week1, week2, week3, week4, week5]
+const week6: ImageMetadata[] = await Astro.glob(
+    '../assets/images/valpar/vecka_6/*',
+).then((files) => {
+    return files.map((file) => file.default)
+})
+
+const weeks = [week1, week2, week3, week4, week5, week6]
 ---
 
 <Base
@@ -71,7 +77,7 @@ const weeks = [week1, week2, week3, week4, week5]
     </Hero>
     <Section>
         <h2 class="section-title-sm mb-4">Valpbilder</h2>
-        <Gallery client:load weeks={weeks} current={4} />
+        <Gallery client:load weeks={weeks} current={5} />
     </Section>
     <Section>
         <h2 class="section-title-sm mb-4">Paxi & Oscar</h2>
