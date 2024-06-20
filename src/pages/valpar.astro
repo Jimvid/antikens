@@ -9,14 +9,14 @@ import { Image } from 'astro:assets'
 import heroImage from '../assets/images/hero-valpar.jpg'
 import dog1 from '../assets/images/vesta.jpeg'
 import dog2 from '../assets/images/helix.jpeg'
-// import { Gallery } from '../components/Gallery'
+import { Gallery } from '../components/Gallery'
 
-// const week1: ImageMetadata[] = await Astro.glob(
-//     '../assets/images/valpar/vecka_1/*',
-// ).then((files) => {
-//     return files.map((file) => file.default)
-// })
-//
+const week1: ImageMetadata[] = await Astro.glob(
+    '../assets/images/valpar/vecka_1/*',
+).then((files) => {
+    return files.map((file) => file.default)
+})
+
 // const week2: ImageMetadata[] = await Astro.glob(
 //     '../assets/images/valpar/vecka_2/*',
 // ).then((files) => {
@@ -65,8 +65,7 @@ import dog2 from '../assets/images/helix.jpeg'
 //     return files.map((file) => file.default)
 // })
 //
-// const weeks =
-//     [week1, week2, week3, week4, week5, week6, week7, week8, week9] || []
+const weeks = [week1] || []
 ---
 
 <Base
@@ -79,15 +78,15 @@ import dog2 from '../assets/images/helix.jpeg'
         alt="Dog sitting and looking at you playfully"
     >
         <p class="pt-6 text-lg">
-            Valparna väntas till midsommar och är redo att flytta till sina nya
-            hem i mitten av augusti. Vid intresse av valp från denna kull är ni
-            välkomna att ringa eller maila mig.
+            Helix och Vestas valpar har nu kommit, 3 hanar och 4 tikar. Om det
+            finns intresse för en valp från denna kull är ni välkomna att ringa
+            eller maila mig.
         </p>
     </Hero>
-    <!-- <Section> -->
-    <!--     <h2 class="section-title-sm mb-4">Valpbilder</h2> -->
-    <!--     <Gallery client:load weeks={weeks} current={weeks.length - 1} /> -->
-    <!-- </Section> -->
+    <Section>
+        <h2 class="section-title-sm mb-4">Valpbilder</h2>
+        <Gallery client:load weeks={weeks} current={weeks.length - 1} />
+    </Section>
     <Section>
         <h2 class="section-title-sm mb-4">Vesta & Helix</h2>
         <p class="text-lg max-w-2xl mb-4">
