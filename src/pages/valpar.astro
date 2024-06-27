@@ -17,12 +17,12 @@ const week1: ImageMetadata[] = await Astro.glob(
     return files.map((file) => file.default)
 })
 
-// const week2: ImageMetadata[] = await Astro.glob(
-//     '../assets/images/valpar/vecka_2/*',
-// ).then((files) => {
-//     return files.map((file) => file.default)
-// })
-//
+const week2: ImageMetadata[] = await Astro.glob(
+    '../assets/images/valpar/vecka_2/*',
+).then((files) => {
+    return files.map((file) => file.default)
+})
+
 // const week3: ImageMetadata[] = await Astro.glob(
 //     '../assets/images/valpar/vecka_3/*',
 // ).then((files) => {
@@ -65,7 +65,7 @@ const week1: ImageMetadata[] = await Astro.glob(
 //     return files.map((file) => file.default)
 // })
 //
-const weeks = [week1] || []
+const weeks = [week1, week2] || []
 ---
 
 <Base
@@ -113,7 +113,7 @@ const weeks = [week1] || []
             />
         </div>
     </Section>
-    <Section pt={false}>
+    <Section>
         <h2 class="section-title-sm">Allt om valpköp</h2>
 
         <p class="py-6 text-lg max-w-2xl">
