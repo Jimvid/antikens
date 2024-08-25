@@ -15,10 +15,15 @@ const { title, description } = Astro.props
 <html lang="en" data-theme="antic">
     <head>
         <BaseHead title={title} description={description} />
+        <script
+            defer
+            src="https://analytics.jimvid-homelab.app/script.js"
+            data-website-id="f04e2968-bb77-45c7-aec1-832f3a59868d"></script>
     </head>
     <Header />
     <main>
         <slot />
     </main>
     <Footer />
+
 </html>
