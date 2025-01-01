@@ -11,62 +11,11 @@ import dog1 from '../assets/images/vesta.jpeg'
 import dog2 from '../assets/images/helix.jpeg'
 import { Gallery } from '../components/Gallery'
 
-const week1: ImageMetadata[] = await Astro.glob(
-    '../assets/images/valpar/vecka_1/*',
-).then((files) => {
-    return files.map((file) => file.default)
-})
-
-const week2: ImageMetadata[] = await Astro.glob(
-    '../assets/images/valpar/vecka_2/*',
-).then((files) => {
-    return files.map((file) => file.default)
-})
-
-const week3: ImageMetadata[] = await Astro.glob(
-    '../assets/images/valpar/vecka_3/*',
-).then((files) => {
-    return files.map((file) => file.default)
-})
-
-const week4: ImageMetadata[] = await Astro.glob(
-    '../assets/images/valpar/vecka_4/*',
-).then((files) => {
-    return files.map((file) => file.default)
-})
-
-const week5: ImageMetadata[] = await Astro.glob(
-    '../assets/images/valpar/vecka_5/*',
-).then((files) => {
-    return files.map((file) => file.default)
-})
-
-const week6: ImageMetadata[] = await Astro.glob(
-    '../assets/images/valpar/vecka_6/*',
-).then((files) => {
-    return files.map((file) => file.default)
-})
-
-const week7: ImageMetadata[] = await Astro.glob(
-    '../assets/images/valpar/vecka_7/*',
-).then((files) => {
-    return files.map((file) => file.default)
-})
-
-const week8: ImageMetadata[] = await Astro.glob(
-    '../assets/images/valpar/vecka_8/*',
-).then((files) => {
-    return files.map((file) => file.default)
-})
-
-const week9: ImageMetadata[] = await Astro.glob(
-    '../assets/images/valpar/vecka_9/*',
-).then((files) => {
-    return files.map((file) => file.default)
-})
-
-const weeks =
-    [week1, week2, week3, week4, week5, week6, week7, week8, week9] || []
+// const week1: ImageMetadata[] = await Astro.glob(
+//     '../assets/images/valpar/vecka_1/*',
+// ).then((files) => {
+//     return files.map((file) => file.default)
+// })
 ---
 
 <Base
@@ -79,42 +28,14 @@ const weeks =
         alt="Dog sitting and looking at you playfully"
     >
         <p class="pt-6 text-lg">
-            Helix och Vestas valpar är nu redo att flytta till sina nya hem. De
-            är födda den 18 juni. Det finns en hane och två tikar, glada och
-            pigga på nya äventyr. Ring eller maila mig om det finns intresse för
-            en liten valp.
+            Valpar planeras till hösten 2025. Mer information kommer när det
+            börjar närma sig.
         </p>
     </Hero>
-    <Section>
-        <h2 class="section-title-sm mb-4">Valpbilder</h2>
-        <Gallery client:load weeks={weeks} current={weeks.length - 1} />
-    </Section>
-    <Section>
-        <h2 class="section-title-sm mb-4">Vesta & Helix</h2>
-        <p class="text-lg max-w-2xl mb-4">
-            <strong>Antikens Valkyria "Vesta"</strong> är en mycket trevlig tik.
-            Snäll och tillgiven, oftast med på det mesta. Vacker silkig päls. Hon
-            är röntgad HD A, BPH testad med skott. DNA PLN N/N
-        </p>
-        <p class="text-lg max-w-2xl mb-4">
-            <strong>Softy Österlen I'm Keen on Kaspian "Helix"</strong> är en ståtlig
-            och maskulin herre med hjärtat på rätta stället. Amerikansk päls. Snäll
-            och trygg med härlig framåtanda. Han är röntgad HD A, BPH testad med
-            skott.
-        </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-            <Image
-                class="rounded-md shadow-lg aspect-[16/12] object-cover"
-                src={dog1}
-                alt="Female dog called Paxi standing at a dog contest"
-            />
-            <Image
-                class="rounded-md shadow-lg aspect-[16/12] object-cover"
-                src={dog2}
-                alt="Female dog called Paxi standing at a dog contest"
-            />
-        </div>
-    </Section>
+    <!-- <Section> -->
+    <!--     <h2 class="section-title-sm mb-4">Valpbilder på förra kullen</h2> -->
+    <!--     <Gallery client:load weeks={weeks} current={weeks.length - 1} /> -->
+    <!-- </Section> -->
     <Section>
         <h2 class="section-title-sm">Allt om valpköp</h2>
 
