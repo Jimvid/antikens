@@ -7,8 +7,8 @@ import Accordion from '../components/Accordion.astro'
 import AccordionItem from '../components/AccordionItem.astro'
 import { Image } from 'astro:assets'
 import heroImage from '../assets/images/hero-valpar.jpg'
-import dog1 from '../assets/images/vesta.jpeg'
-import dog2 from '../assets/images/helix.jpeg'
+import dog1 from '../assets/images/valpar/Molly.jpg'
+import dog2 from '../assets/images/valpar/Sigge.jpg'
 import { Gallery } from '../components/Gallery'
 
 // const week1: ImageMetadata[] = await Astro.glob(
@@ -16,6 +16,7 @@ import { Gallery } from '../components/Gallery'
 // ).then((files) => {
 //     return files.map((file) => file.default)
 // })
+const weeks: ImageMetadata[][] = [[dog1, dog2]]
 ---
 
 <Base
@@ -28,10 +29,29 @@ import { Gallery } from '../components/Gallery'
         alt="Dog sitting and looking at you playfully"
     >
         <p class="pt-6 text-lg">
-            Valpar planeras till hösten 2025. Mer information kommer när det
-            börjar närma sig.
+            Spännande kull väntas runt den 15 september och är redo att flytta
+            till sina hem vecka 46. Om intresse av valp från denna kull är ni
+            välkomna att kontakta mig. Ni kan följa valparna här på min hemsida
+            vecka för vecka när de är födda.
         </p>
     </Hero>
+
+    <Section>
+        <h2 class="section-title-sm mb-4">Sigge och Molly</h2>
+        <p class="py-6 text-lg max-w-xl">
+            Pappa till valparna är Lakkas Utility "Sigge" (bild 1) Trygg och
+            stabil kille. Nyfiken och social, trevligt temperament. Tydlig av-
+            och på knapp. Lätt att ta med sig överallt. Tränar alility, nosework
+            och allmänlydnad. BPH test skottfast. Vacker päls.
+        </p>
+        <p class="py-6 text-lg max-w-xl">
+            Mamman till valparna är Antikens Xenia "Molly" (bild 2) Trevlig och
+            social tik med mycket energi, men ligger gärna i soffan och myser.
+            Fungerar väl med andra hundar, är på hunddagis ett par dagar i
+            veckan. Tränar alility med lillmatte. Vacker silkig päls.
+        </p>
+        <Gallery client:load weeks={[[dog1, dog2]]} current={0} />
+    </Section>
     <!-- <Section> -->
     <!--     <h2 class="section-title-sm mb-4">Valpbilder på förra kullen</h2> -->
     <!--     <Gallery client:load weeks={weeks} current={weeks.length - 1} /> -->

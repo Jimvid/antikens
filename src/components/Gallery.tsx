@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 export type GalleryProps = {
     weeks: ImageMetadata[][]
-    current: number
+    current?: number
 }
 
 export const Gallery = ({ weeks, current = 0 }: GalleryProps) => {
@@ -10,19 +10,21 @@ export const Gallery = ({ weeks, current = 0 }: GalleryProps) => {
 
     return (
         <div className="flex flex-col gap-4">
-            <div className="flex gap-4 items-center">
-                <div className="text-xl font-semibold">Vecka:</div>
-                <div className="join">
-                    {weeks?.map((_: unknown, index: number) => (
-                        <button
-                            className={`join-item btn border-2 ${index === currentWeek ? 'btn-primary text-white' : ''}`}
-                            onClick={() => setcurrentWeek(index)}
-                        >
-                            {index + 1}
-                        </button>
-                    ))}
+            {weeks.length > 1 && (
+                <div className="flex gap-4 items-center">
+                    <div className="text-xl font-semibold">Vecka:</div>
+                    <div className="join">
+                        {weeks?.map((_: unknown, index: number) => (
+                            <button
+                                className={`join-item btn border-2 ${index === currentWeek ? 'btn-primary text-white' : ''}`}
+                                onClick={() => setcurrentWeek(index)}
+                            >
+                                {index + 1}
+                            </button>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                 {weeks[currentWeek].map((image: any, index: number) => (
                     <div>
