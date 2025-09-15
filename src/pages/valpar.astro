@@ -11,12 +11,12 @@ import dog1 from '../assets/images/valpar/Molly.jpg'
 import dog2 from '../assets/images/valpar/Sigge.jpg'
 import { Gallery } from '../components/Gallery'
 
-// const week1: ImageMetadata[] = await Astro.glob(
-//     '../assets/images/valpar/vecka_1/*',
-// ).then((files) => {
-//     return files.map((file) => file.default)
-// })
-const weeks: ImageMetadata[][] = [[dog1, dog2]]
+const week1: ImageMetadata[] = await Astro.glob(
+    '../assets/images/valpar/vecka_1/*',
+).then((files) => {
+    return files.map((file) => file.default)
+})
+const weeks: ImageMetadata[][] = [week1]
 ---
 
 <Base
@@ -29,10 +29,14 @@ const weeks: ImageMetadata[][] = [[dog1, dog2]]
         alt="Dog sitting and looking at you playfully"
     >
         <p class="pt-6 text-lg">
-            Spännande kull väntas runt den 15 september och är redo att flytta
-            till sina hem vecka 46. Om intresse av valp från denna kull är ni
-            välkomna att kontakta mig. Ni kan följa valparna här på min hemsida
-            vecka för vecka när de är födda.
+            Nu är Sigge och Mollys valpar här. 5 hanar och 4 tikar De föddes den
+            14 september och är redo att flytta till sina nya hem den 9
+            november.
+        </p>
+        <p class="pt-6 text-lg">
+            Ni kan följa valparnas utveckling här på hemsidan vecka för vecka Om
+            det finns intresse för en valp från denna kull, är ni välkomna att
+            kontakta mig.
         </p>
     </Hero>
 
@@ -52,10 +56,10 @@ const weeks: ImageMetadata[][] = [[dog1, dog2]]
         </p>
         <Gallery client:load weeks={[[dog1, dog2]]} current={0} />
     </Section>
-    <!-- <Section> -->
-    <!--     <h2 class="section-title-sm mb-4">Valpbilder på förra kullen</h2> -->
-    <!--     <Gallery client:load weeks={weeks} current={weeks.length - 1} /> -->
-    <!-- </Section> -->
+    <Section>
+        <h2 class="section-title-sm mb-4">Valpbilder</h2>
+        <Gallery client:load weeks={weeks} current={weeks.length - 1} />
+    </Section>
     <Section>
         <h2 class="section-title-sm">Allt om valpköp</h2>
 
