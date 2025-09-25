@@ -16,7 +16,13 @@ const week1: ImageMetadata[] = await Astro.glob(
 ).then((files) => {
     return files.map((file) => file.default)
 })
-const weeks: ImageMetadata[][] = [week1]
+
+const week2: ImageMetadata[] = await Astro.glob(
+    '../assets/images/valpar/vecka_2/*',
+).then((files) => {
+    return files.map((file) => file.default)
+})
+const weeks: ImageMetadata[][] = [week1, week2]
 ---
 
 <Base
