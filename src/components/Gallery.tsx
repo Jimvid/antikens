@@ -32,7 +32,7 @@ export const Gallery = ({ weeks, current = 0 }: GalleryProps) => {
                             className="pointer-events-none w-full md:pointer-events-auto"
                             onClick={() => {
                                 const modalTrigger = document?.getElementById(
-                                    `modal_${index}`,
+                                    `modal_${image.src}`,
                                 ) as HTMLDialogElement
                                 modalTrigger.showModal()
                             }}
@@ -43,7 +43,7 @@ export const Gallery = ({ weeks, current = 0 }: GalleryProps) => {
                                 alt=""
                             />
                         </button>
-                        <dialog id={`modal_${index}`} className="modal">
+                        <dialog id={`modal_${image.src}`} className="modal">
                             <div className="modal-box min-w-[45vw] overflow-hidden rounded-md border-2 border-black p-0 relative">
                                 <form
                                     method="dialog"
