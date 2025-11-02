@@ -5,7 +5,6 @@ import Contact from '../components/Contact.astro'
 import Section from '../components/Section.astro'
 import Accordion from '../components/Accordion.astro'
 import AccordionItem from '../components/AccordionItem.astro'
-import { Image } from 'astro:assets'
 import heroImage from '../assets/images/hero-valpar.jpg'
 import dog1 from '../assets/images/valpar/Molly.jpg'
 import dog2 from '../assets/images/valpar/Sigge.jpg'
@@ -52,6 +51,12 @@ const week7: ImageMetadata[] = await Astro.glob(
     return files.map((file) => file.default)
 })
 
+const week8: ImageMetadata[] = await Astro.glob(
+    '../assets/images/valpar/vecka_8/*',
+).then((files) => {
+    return files.map((file) => file.default)
+})
+
 const weeks: ImageMetadata[][] = [
     week1,
     week2,
@@ -60,6 +65,7 @@ const weeks: ImageMetadata[][] = [
     week5,
     week6,
     week7,
+    week8,
 ]
 ---
 
