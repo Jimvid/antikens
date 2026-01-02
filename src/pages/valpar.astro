@@ -6,9 +6,13 @@ import Section from '../components/Section.astro'
 import Accordion from '../components/Accordion.astro'
 import AccordionItem from '../components/AccordionItem.astro'
 import heroImage from '../assets/images/hero-valpar.jpg'
-import dog1 from '../assets/images/valpar/Molly.jpg'
-import dog2 from '../assets/images/valpar/Sigge.jpg'
 import { Gallery } from '../components/Gallery'
+
+const valpbilder: ImageMetadata[] = await Astro.glob(
+    '../assets/images/aldre_valpar/*',
+).then((files) => {
+    return files.map((file) => file.default)
+})
 
 const week1: ImageMetadata[] = await Astro.glob(
     '../assets/images/valpar/vecka_1/*',
@@ -79,43 +83,48 @@ const weeks: ImageMetadata[][] = [
     title="Antikens kennel | Valpar"
     description="När du köper en wheaten valp från mig på Antikens kennel så är den uppfödd i hemmamiljö där valpen har blivit socialiserad och blivit van att hanteras."
 >
-    <Hero
+    <!-- <Hero
         title="Valpar"
         image={heroImage}
         alt="Dog sitting and looking at you playfully"
     >
         <p class="pt-6 text-lg">
-            Nu är Sigge och Mollys valpar här. 5 hanar och 4 tikar De föddes den
-            14 september och är redo att flytta till sina nya hem den 9
-            november.
+            Två hanar och en tik har hunnit bli 14 veckor och har fått sitt
+            andra vaccin. Pigga och aktiva valpar som önskar trygga och
+            kärleksfulla hem. Om ni bor i Danmark eller Norge kan jag ombesörja
+            pass och rabiesvaccination och avmaska de är de redan.
         </p>
-        <p class="pt-6 text-lg">
-            Ni kan följa valparnas utveckling här på hemsidan vecka för vecka Om
-            det finns intresse för en valp från denna kull, är ni välkomna att
-            kontakta mig.
-        </p>
-    </Hero>
+    </Hero> -->
 
     <Section>
-        <h2 class="section-title-sm mb-4">Sigge och Molly</h2>
-        <p class="py-6 text-lg max-w-xl">
-            Mamman till valparna är Antikens Xenia "Molly" (bild 1) Trevlig och
-            social tik med mycket energi, men ligger gärna i soffan och myser.
-            Fungerar väl med andra hundar, är på hunddagis ett par dagar i
-            veckan. Tränar alility med lillmatte. Vacker silkig päls.
+        <h2 class="section-title-sm mb-4">Valpar</h2>
+        <p class="py-4 pb-12 text-xl max-w-2xl">
+            Två hanar och en tik har hunnit bli 14 veckor och har fått sitt
+            andra vaccin. Pigga och aktiva valpar som önskar trygga och
+            kärleksfulla hem. Bor ni i Danmark eller Norge kan jag ombesörja
+            pass och rabiesvaccination och avmaska de är de redan.
         </p>
-        <p class="py-6 text-lg max-w-xl">
-            Pappa till valparna är Lakkas Utility "Sigge" (bild 2) Trygg och
-            stabil kille. Nyfiken och social, trevligt temperament. Tydlig av-
-            och på knapp. Lätt att ta med sig överallt. Tränar alility, nosework
-            och allmänlydnad. BPH test skottfast. Vacker päls.
+
+        <h2 class="text-2xl font-bold mb-0">Molly</h2>
+        <p class="pt-2 pb-8 text-lg max-w-2xl">
+            Mamman till valparna är Antikens Xenia "Molly" Trevlig och social
+            tik med mycket energi, men ligger gärna i soffan och myser. Fungerar
+            väl med andra hundar, är på hunddagis ett par dagar i veckan. Tränar
+            alility med lillmatte. Vacker silkig päls.
         </p>
-        <Gallery client:load weeks={[[dog1, dog2]]} current={0} />
+        <h2 class="text-2xl font-bold mb-0">Lakkas</h2>
+        <p class="pt-2 pb-8 text-lg max-w-2xl">
+            Pappa till valparna är Lakkas Utility "Sigge" Trygg och stabil
+            kille. Nyfiken och social, trevligt temperament. Tydlig av- och på
+            knapp. Lätt att ta med sig överallt. Tränar alility, nosework och
+            allmänlydnad. BPH test skottfast. Vacker päls.
+        </p>
+        <Gallery client:load weeks={[valpbilder]} current={0} />
     </Section>
-    <Section>
-        <h2 class="section-title-sm mb-4">Valpbilder</h2>
+    <!-- <Section>
+        <h2 class="section-title-sm mb-4">Valpbilder från senaste kullen</h2>
         <Gallery client:load weeks={weeks} current={weeks.length - 1} />
-    </Section>
+    </Section> -->
     <Section>
         <h2 class="section-title-sm">Allt om valpköp</h2>
 
