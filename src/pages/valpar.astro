@@ -1,11 +1,11 @@
 ---
 import Base from '../layouts/Base.astro'
-import Hero from '../components/Hero.astro'
+// import Hero from '../components/Hero.astro'
 import Contact from '../components/Contact.astro'
 import Section from '../components/Section.astro'
 import Accordion from '../components/Accordion.astro'
 import AccordionItem from '../components/AccordionItem.astro'
-import heroImage from '../assets/images/hero-valpar.jpg'
+// import heroImage from '../assets/images/hero-valpar.jpg'
 import { Gallery } from '../components/Gallery'
 
 const valpbilder: ImageMetadata[] = await Astro.glob(
@@ -99,12 +99,15 @@ const weeks: ImageMetadata[][] = [
     <Section>
         <h2 class="section-title-sm mb-4">Valpar</h2>
         <p class="py-4 pb-12 text-xl max-w-2xl">
-            Två hanar och en tik har hunnit bli 14 veckor och har fått sitt
-            andra vaccin. Pigga och aktiva valpar som önskar trygga och
-            kärleksfulla hem. Bor ni i Danmark eller Norge kan jag ombesörja
-            pass och rabiesvaccination och avmaska de är de redan.
+            En hane och en tik har hunnit bli 5 månader Charmiga, sociala och
+            aktiva valpar som önskar trygga och kärleksfulla hem. De är
+            vaccinerade även mot rabies så det möter inga hinder om någon i
+            Danmark eller Norge är intresserad. Kontakta mig gärna om frågor
+            eller intresse för någon av dessa ljuvliga valpar.
         </p>
-
+        <div class="mb-4">
+            <Gallery client:load weeks={[valpbilder]} current={0} />
+        </div>
         <h2 class="text-2xl font-bold mb-0">Molly</h2>
         <p class="pt-2 pb-8 text-lg max-w-2xl">
             Mamman till valparna är Antikens Xenia "Molly" Trevlig och social
@@ -119,7 +122,6 @@ const weeks: ImageMetadata[][] = [
             knapp. Lätt att ta med sig överallt. Tränar alility, nosework och
             allmänlydnad. BPH test skottfast. Vacker päls.
         </p>
-        <Gallery client:load weeks={[valpbilder]} current={0} />
     </Section>
     <!-- <Section>
         <h2 class="section-title-sm mb-4">Valpbilder från senaste kullen</h2>
