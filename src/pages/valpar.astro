@@ -1,11 +1,11 @@
 ---
 import Base from '../layouts/Base.astro'
-// import Hero from '../components/Hero.astro'
+import Hero from '../components/Hero.astro'
 import Contact from '../components/Contact.astro'
 import Section from '../components/Section.astro'
 import Accordion from '../components/Accordion.astro'
 import AccordionItem from '../components/AccordionItem.astro'
-// import heroImage from '../assets/images/hero-valpar.jpg'
+import heroImage from '../assets/images/hero-valpar.jpg'
 import { Gallery } from '../components/Gallery'
 
 const valpbilder: ImageMetadata[] = await Astro.glob(
@@ -83,50 +83,18 @@ const weeks: ImageMetadata[][] = [
     title="Antikens kennel | Valpar"
     description="När du köper en wheaten valp från mig på Antikens kennel så är den uppfödd i hemmamiljö där valpen har blivit socialiserad och blivit van att hanteras."
 >
-    <!-- <Hero
+    <Hero
         title="Valpar"
         image={heroImage}
         alt="Dog sitting and looking at you playfully"
     >
-        <p class="pt-6 text-lg">
-            Två hanar och en tik har hunnit bli 14 veckor och har fått sitt
-            andra vaccin. Pigga och aktiva valpar som önskar trygga och
-            kärleksfulla hem. Om ni bor i Danmark eller Norge kan jag ombesörja
-            pass och rabiesvaccination och avmaska de är de redan.
-        </p>
-    </Hero> -->
+        <p class="pt-6 text-lg">Valpar planeras till sommaren 2027.</p>
+    </Hero>
 
     <Section>
-        <h2 class="section-title-sm mb-4">Valpar</h2>
-        <p class="py-4 pb-12 text-xl max-w-2xl">
-            En hane och en tik har hunnit bli 5 månader Charmiga, sociala och
-            aktiva valpar som önskar trygga och kärleksfulla hem. De är
-            vaccinerade även mot rabies så det möter inga hinder om någon i
-            Danmark eller Norge är intresserad. Kontakta mig gärna om frågor
-            eller intresse för någon av dessa ljuvliga valpar.
-        </p>
-        <div class="mb-4">
-            <Gallery client:load weeks={[valpbilder]} current={0} />
-        </div>
-        <h2 class="text-2xl font-bold mb-0">Molly</h2>
-        <p class="pt-2 pb-8 text-lg max-w-2xl">
-            Mamman till valparna är Antikens Xenia "Molly" Trevlig och social
-            tik med mycket energi, men ligger gärna i soffan och myser. Fungerar
-            väl med andra hundar, är på hunddagis ett par dagar i veckan. Tränar
-            alility med lillmatte. Vacker silkig päls.
-        </p>
-        <h2 class="text-2xl font-bold mb-0">Sigge</h2>
-        <p class="pt-2 pb-8 text-lg max-w-2xl">
-            Pappa till valparna är Lakkas Utility "Sigge" Trygg och stabil
-            kille. Nyfiken och social, trevligt temperament. Tydlig av- och på
-            knapp. Lätt att ta med sig överallt. Tränar alility, nosework och
-            allmänlydnad. BPH test skottfast. Vacker päls.
-        </p>
-    </Section>
-    <!-- <Section>
         <h2 class="section-title-sm mb-4">Valpbilder från senaste kullen</h2>
         <Gallery client:load weeks={weeks} current={weeks.length - 1} />
-    </Section> -->
+    </Section>
     <Section>
         <h2 class="section-title-sm">Allt om valpköp</h2>
 
